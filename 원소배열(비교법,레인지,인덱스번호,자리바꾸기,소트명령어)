@@ -1,0 +1,70 @@
+# 원소 배열(원소로 하기)
+"""
+a = [5,9,6,2,8]
+
+small = a[0]
+
+for i in a:
+    if i < small:
+        small = i
+
+
+print(small)
+
+"""
+# 레인지로 하기
+"""
+a = [5,9,6,2,8]
+
+small = a[0]
+
+for i in range(len(a)):
+    if a[i] < a[0]:
+        small = a[i]
+
+print(small)
+"""
+"""
+## 제일 작은 수의 인덱스(번호)를 가져오기
+
+a = [5,9,6,2,8]
+
+small = a[0]
+
+for i in range(len(a)):
+    if a[i] < a[0]:
+        small = a[i]
+
+print(small)
+
+for i in range(len(a)):
+    if small == a[i]:
+        print(i)
+"""
+## 자리 바꾸기(제일 작은 수를 왼쪽으로)
+
+"""
+import random
+a = []
+for i in range(10):
+    a.append(random.randrange(1,200))
+
+for j in range(len(a)):
+    small_index = j
+
+    for i in range(j, len(a)):
+        if a[small_index] > a[i]:
+            small_index = i
+    a[j], a[small_index] = a[small_index], a[j]
+print(a)
+"""
+
+
+## 소트명령어로 한방에 정렬
+"""
+a = [5,9,6,2,8]
+
+a.sort()
+
+print(a)
+"""
