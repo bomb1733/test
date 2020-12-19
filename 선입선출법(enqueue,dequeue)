@@ -1,0 +1,35 @@
+## Queue ( 선입 선출법)
+
+
+def enqueue(queue, a):
+    if len(queue) >= max_v:
+        print("overflow")
+    else:
+        queue.append(a)
+
+    return queue
+
+def dequeue(queue):
+    if len(queue) == 0:  # 길이가 0일 경우에는 못하게. underflow 확인 코드
+        print("underflow")
+    else:
+        print(queue[0])
+        del queue[0]  # 빼주는 작업
+
+    return queue
+
+
+max_v = 5
+queue = []
+
+while True:
+    a = int(input("1 is enqueue, 2 is dequeue, 3 is out :"))
+
+    if a == 1:
+        data = int(input("Enter the data : "))
+        queue = enqueue(queue, data)
+    elif a == 2:
+        queue = dequeue(queue)
+    elif a == 3:
+        print("out")
+        break
