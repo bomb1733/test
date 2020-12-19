@@ -1,0 +1,17 @@
+def people(a):
+    if(len(a)!=14):
+        print("잘못 입력하셨습니다.")
+        exit()
+        a="941021-1111111"#=>a[0]~a[13]
+    else:
+        if a[7] == '1' or a[7] == '3':
+            gen = 'M'
+        else:
+            gen = 'W'
+        if a[7] == '1' or a[7] == '2':
+            age = 2020-(1900 + 10 * int(a[0]) + int(a[1]))+1
+        else:
+            age = 2020 - (2000 + 10 * int(a[0]) + int(a[1]))+1
+    print("나이는 {}살 성별은 {}입니다.".format(age,gen))
+a = input()
+people(a)
