@@ -1,0 +1,16 @@
+## 3,6,9 게임(*로 표시)
+for i in range(100):
+    one = i % 10
+    ten = i // 10
+
+    ten_condition = ten % 3 == 0 and ten !=0
+    one_condition = one % 3 == 0 and one !=0
+
+    if one_condition and ten_condition:
+        print("**")
+    elif one_condition:
+        print("*")
+    elif ten_condition:
+        print("*")
+    else:
+        print(i)
