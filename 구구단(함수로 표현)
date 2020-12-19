@@ -1,0 +1,45 @@
+구구단을 함수 사용하여 표현
+
+def nk_test(a):
+    print("a value", a)
+    for i in range(1, 10):
+        print("{} * {} = {}".format(a, i, a*i))
+
+b = int(input())
+nk_test(b)
+
+for문은 지정한 마지막 숫자 전까지 하고 멈춘다.
+
+
+## 3,6,9 게임 변형  ##
+내가 입력한 수의 배수를 *로 표시. 
+
+def threegame(a,b):           # 10의자리,일의자리 각각 입력 받음
+
+    for i in range(100):
+        one = i % 10
+        ten = i // 10
+
+        ten_condition = ten % a == 0 and ten !=0
+        one_condition = one % b == 0 and one !=0
+
+        if one_condition and ten_condition:      #일의자리,10의자리 모두
+            print("**")
+        elif one_condition:     #일의자리하나
+            print("*")
+        elif ten_condition:     #10의자리하나
+            print("*")
+        else:                   #기타인경우 원래대로 표시
+            print(i)
+a = int(input())               #함수 안에서 입력 받는걸로
+b = int(input())
+threegame(a,b)                 # 조립해서 표시
+
+
+같은 표현
+a = [1,2,3]
+for i in range(len(a)):
+    print(a[i])
+
+for num, i in enuemrate(a):
+    print(i)    
