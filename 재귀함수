@@ -11,3 +11,13 @@ def fact1(a):
 
 a = int(input())
 fact1(a)
+
+
+def fact2(a):
+    if a <= 0:
+        return 1
+    else:
+        return a * fact2(a-1) #재귀함수
+
+a = int(input("숫자를 입력하시오:"))
+print("{}! = {}".format(a,fact2(a)))
