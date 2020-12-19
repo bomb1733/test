@@ -1,0 +1,30 @@
+<입력값으로 센터값과 비교하여 몇 번 작업했는지 찾기>
+
+e = 0 # 몇 번 비교했는지 변수
+start = 1
+final = 100
+center = 50
+d= int(input())
+for i in range(1, 100):
+    if d == center:
+        break
+    elif d>center :
+        start = center
+    elif d<center :
+        final = center
+    center = (start + final)//2
+    e = e + 1
+print(e)
+
+
+
+
+a = "apple"
+sort=[]
+b = 0
+for i in range(len(a)):
+    sort.append(a[b])
+    b = b+1
+print(sort)
+sort.reverse()
+print(sort)
