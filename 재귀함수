@@ -1,0 +1,13 @@
+## 재귀함수 - 함수의 무한루프와 같은 형태
+## 함수안에 함수 자신을 다시 불러오는 것
+## ex) 팩토리얼 구하는 함수
+
+
+def fact1(a):
+    tot = 1
+    for i in range(1, a+1):
+        tot *= i#tot = tot * i
+    print("{}! = {}".format(a,tot))
+
+a = int(input())
+fact1(a)
