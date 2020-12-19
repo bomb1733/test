@@ -1,0 +1,31 @@
+## 자료구조(stack)
+## overflow (한계값보다 넘침), underflow(자료가 없는데 삭제시도)
+## push는 넣고, pop은 제거, exit는 그만
+"""
+def push(stack, a):
+    if len(stack) >= max_v:
+        print("overflow")
+    else:
+        stack.append(a)
+    return stack
+
+def pop(stack):
+    if len(stack) == 0: # 길이가 0일 경우에는 못하게. underflow 확인 코드
+        print("underflow")
+    else:
+        print(stack[len(stack) - 1])
+        del stack[len(stack)-1] # 빼주는 작업
+    return stack
+
+max_v = 5
+stack = []
+
+while True:
+    check = int(input("1 is push, 2 is pop, 3 is exit"))
+    if check == 1:
+        a = int(input("enter the value : "))
+        stack = push(stack, a)
+    elif check == 2:
+        stack = pop(stack)
+    elif check == 3:
+        break
