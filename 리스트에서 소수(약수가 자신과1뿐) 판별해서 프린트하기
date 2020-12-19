@@ -1,0 +1,25 @@
+import random
+
+prime_list = []
+random_list = []
+for i in range(100):
+    b = random.randrange(1, 100)
+    random_list.append(b)
+print(random_list)
+
+for k in range(len(random_list)):
+    a = random_list[k]
+    flag = 0
+
+    if a <= 1:
+        continue
+
+    for i in range(2, a//2 + 1):
+        if a % i == 0:
+            flag = 1
+            break
+
+    if flag == 0:
+        prime_list.append(a)
+
+print(prime_list)
