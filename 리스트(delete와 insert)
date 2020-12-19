@@ -1,0 +1,17 @@
+<4주차>
+
+delete : 사용 안하는 것이 좋다 
+
+
+a = [1,2,3,4]
+for i in range(len(a)):
+    if i = 1:
+        del a[i]
+에러 난다
+
+
+insert : 중간에 값을 넣어준다
+a.insert
+
+
+a= [i for i in range(10)]
