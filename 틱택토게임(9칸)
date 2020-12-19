@@ -1,0 +1,89 @@
+def make_board():
+    a = []  # 하나의 판을 만든것, 판의 틀을 9칸으로 초기값은 - 로 표현
+    for i in range(9):
+        a.append("-")
+
+    return a
+
+def see_board(board):
+    print(board[0] + "ㅣ" + board[1] + "ㅣ" + board[2])
+    print("-----")
+    print(board[3] + "ㅣ" + board[4] + "ㅣ" + board[5])
+    print("-----")
+    print(board[6] + "ㅣ" + board[7] + "ㅣ" + board[8])
+
+def check_win(board):
+    result= False
+
+    if board[0] == board[1] and board[1] == board[2] and board[0] != '-':
+        result = True
+    elif board[3] == board[4] == board[5] and board[3] != '-':
+        result = True
+    elif board[6] == board[7] == board[8] and board[6] != '-':
+        result = True
+    elif board[0] == board[3] == board[6] and board[0] != '-':
+        result = True
+    elif board[1] == board[4] == board[7] and board[1] != '-':
+        result = True
+    elif board[2] == board[5] == board[8] and board[2] != '-':
+        result = True
+    elif board[0] == board[4] == board[8] and board[0] != '-':
+        result = True
+    elif board[2] == board[4] == board[6] and board[2] != '-':
+        result = True
+
+    return result
+
+flag = int(input("회원 가입은 1번 을 눌러 주시고 로그인은 2번을 눌러주세요"))
+if flag == 1:
+    make_signup()
+
+else:
+    make_login()
+
+
+board = make_board()
+see_board(board)
+
+player1 = input("O or X")
+player1 = player1.upper()    # 소문자를 입력해서 대문자로 수정해준다
+
+if player1 == "O":
+    player2 = "X"
+else:
+    player1 = "X"
+    player2 = "O"
+
+turn = 0  # 0 인 경우 내 턴. 아닌 경우 컴퓨터 턴.
+victory = 0 # 승패결정 변수.
+
+for i in range(9):
+    if turn == 0:
+        while True:
+            num = int(input("0,1,2,3,4,5,6,7,8,"))
+            if board[num] == "-" :                   # 값이 없는 경우에만 입력 받는 코드
+                board[num] = player1
+                turn = 1
+                break
+        check = check_win(board)
+        if check == True:
+            print("person win")
+            vic
+            break
+
+    else:
+        while True:
+            com = random.randrange(0, 8)
+            if board[com] == "-" :
+                board[com] = player2
+                turn = 0
+                break
+        check = check_win(board)
+        if check == True:
+            print("com win")
+            break
+
+    see_board(board)
+
+if board[num] != [0]:
+    print("비겼습니다")
