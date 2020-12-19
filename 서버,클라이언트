@@ -1,0 +1,66 @@
+
+from socket import*
+serverSock = socket(AF_INET, SOCK_STREAM)
+serverSock.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
+serverSock.bind(('', 8080))
+while True:
+    BUF_SIZE = 2048
+    serverSock.listen(3)
+    conn, addr = serverSock.accept()
+    data = conn.recv(BUF_SIZE)
+    msg = data.decode()
+    conn.send("hihi".encode())
+    if msg == 'bye':
+        conn.close()
+        break
+    if msg == int(): #네. 메시지를 int로 ...
+        a = int(input())
+        b = 0
+        money = [500, 100, 50, 10]
+
+        for i in range(len(money)):
+            b = b + a // money[i]  # 갯수
+            a = a % money[i]  # 이월하는 돈
+
+        conn.send("b".encode()) ## STR로 바꿔서 보내기???
+
+
+serverSock.close()
+
+from socket import *
+
+BUF_SIZE = 1024
+
+while Treu:
+    clientSock = socket(AF_INET, SOCK_STREAM)
+    clientSock.connect(('127.0.0.1', 8080))
+    data = input(">>")
+    clientSock.sendall(data.encode())
+    if(data == "bye"):
+        clientSock.close()
+        break
+    res = clientSock.recv(1024)
+    print(res.decode())
+
+
+< 클라이언트 입력부분>
+
+from socket import *
+
+BUF_SIZE = 1024
+
+while True:
+    clientSock = socket(AF_INET, SOCK_STREAM)
+    clientSock.connect(('127.0.0.1', 8080))
+    data = input(">>")
+    clientSock.sendall(data.encode())
+    if(data == "bye"):
+        clientSock.close()
+        break
+
+
+
+# 계산은 서버에서,
+# 입력은 클라이언트에서서
+    res = clientSock.recv(1024)
+    print(res.decode())
