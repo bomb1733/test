@@ -1,0 +1,86 @@
+
+import pygame
+
+pygame.init() # 게임 시작시 초기화
+
+# bilt drwaws the image to the screen
+
+def car(carImg, x, y):  # 이미지, X좌표, Y좌표
+    gameDisplay.blit(carImg, (x, y))
+
+def text_objects(text, font):
+    textSurface = font.render(text, True, black)
+    return textSurface, textSurface.get_rect()
+
+def message_display(text):
+    largeText = pygame.font.Font('freesansbold.ttf', 115)
+    TextSurf, TextRect = text_objects(text, largeText)
+    TextRect.center = ((display_width / 2), (display_height / 2))
+    gameDisplay.blit(TextSurf, TextRect)
+
+    pygame.display.update()
+
+def crash():
+    message_display('You Crashed')
+
+display_width = 800
+display_height = 600
+
+gameDisplay = pygame.display.set_mode((display_width, display_height))  # 실제로 셋팅을 적용
+pygame.display.set_caption('race')
+
+black = (0,0,0)
+white = (255, 255, 255)
+
+
+clock = pygame.time.Clock()
+crashed = False  # 부딪힌다, 부딪히지 않는다. 의미 부여
+carImg = pygame.image.load('./racecar.jpg')
+
+x = (display_width * 0.45) # 처음시작할 위치 셋팅, 절대 위치가 아닌 상대좌표 지정으로
+y = (display_height * 0.8)
+car_width = 50
+car_height = 50
+x_change = 0
+y_change = 0
+car_speed = 0
+
+while not crashed: # 부딪힐때까지 계속해라.
+    for event in pygame.event.get(): # 이벤트가 발생했는지 체크
+        if event.type == pygame.QUIT:
+            crashed = True
+        # 움직이는 코드 추가
+        if event.type == pygame.KEYDOWN: # 키다운은 뭔가 누른것
+            if event.key == pygame.K_LEFT:
+                x_change = -5
+            elif event.key == pygame.K_RIGHT:
+                x_change = 5
+            elif event.key == pygame.K_UP:
+                y_change = 5
+            elif event.key == pygame.K_DOWN:
+                y_change = -5
+
+
+        if event.type == pygame.KEYUP: # 키업은 눌렀다가 뗀 것
+            if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT or event.key == pygame.K_UP or event.key == pygame.K_DOWN:
+                x_change = 0
+                y_change = 0
+
+
+
+    x += x_change # x = x + x_change
+    y += y_change
+
+
+    gameDisplay.fill(white)
+    car(carImg, x, y)
+
+    if x > display_width - car_width or x < 0:
+        crash()
+        crashed = True
+    if y > display_height - car_height or y < 0:
+        crash()
+        crashed = True
+
+    pygame.display.update()
+    clock.tick(60)
