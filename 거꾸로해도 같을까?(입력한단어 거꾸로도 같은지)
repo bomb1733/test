@@ -1,0 +1,33 @@
+<5주차>
+
+# 버전 1
+a= input()
+reverse = []
+not_reverse = []
+
+for i in range(len(a)):
+    reverse.append(a[i])
+    not_reverse.append(a[len(a) - 1 - i])
+flag = 0
+for i in range(len(reverse)):
+    if reverse[i] != not_reverse[i]:
+        flag = 1
+        break
+if flag == 1:
+    print("not same")
+else:
+    print("same")
+
+
+# 버전2
+
+a = input()
+flag = 0
+for i in range(len(a)):
+    if a[i] != a[len(a) - 1 - i]:
+        flag = 1
+        break
+if flag == 1:
+    print("not same")
+else:
+    print("same")
