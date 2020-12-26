@@ -1,0 +1,32 @@
+import random
+def make_random_list():
+
+    a = []
+    for i in range(10):
+        a.append(random.randrange(1,100))
+
+    return a
+
+def check_and_sum(total, item):
+    if item % 2 == 0:
+        total += item
+    return total
+def even_index_total_sum(a):
+    total_sum = 0
+    for i in range(len(a)):
+        total_sum = check_and_sum(total_sum, a[i])
+    return total_sum
+
+
+def even_item_total_sum(a):
+    total_sum_2 = 0
+    for item in a:
+        total_sum_2 = check_and_sum(total_sum_2, item)
+    return total_sum_2
+
+random_list = make_random_list()
+index_total_sum = even_index_total_sum(random_list)
+item_total_sum = even_item_total_sum(random_list)
+print("random_list", random_list)
+print("index_total_sum", index_total_sum)
+print("item_total_sum", item_total_sum)
