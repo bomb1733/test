@@ -1,0 +1,10 @@
+fi_list = []
+a = 6
+
+fi_list.append(1)
+fi_list.append(1)
+
+for i in range(2,a):
+    fi_list.append(fi_list[i-1] + fi_list[i-2])
+
+print(fi_list)
