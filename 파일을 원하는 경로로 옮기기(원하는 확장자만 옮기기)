@@ -1,0 +1,16 @@
+import shutil
+shutil.copy("ori/text.txt", "copy_path/cotext.txt")
+"""
+
+import shutil
+import os
+path = "./ori"
+file_list = os.listdir(path)
+
+
+for file in file_list:
+    print(file, type(file))
+
+    file_type = file.split('.')[1]
+    if file_type == "png":
+        shutil.copy("ori/" + file, "copy_path/" + file)
