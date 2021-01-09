@@ -1,0 +1,8 @@
+a = int(input())
+b = int(input())
+print(a, end=' ')
+hap = a
+for i in range(a+1, b+1):
+    hap += i
+    print("+{}".format(i), end = ' ')
+print("={}".format(hap))
