@@ -1,0 +1,11 @@
+sum = 0
+for i in range(a, b+1, a):
+    sum += i
+print(sum)
+"""
+"""
+hap = 0
+for i in range(1,a+1):
+    if i % b ==0:
+        hap += i
+print(hap)
