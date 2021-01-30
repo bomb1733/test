@@ -1,0 +1,16 @@
+a = input()
+ch = [0 for i in range(10)]
+
+max_num = -1 # 0일수도 있으니까
+res = 0
+
+for i in a:
+    dig = int(i)
+    ch[dig] += 1
+print(ch)
+
+for j in range(10):
+    if ch[j] >= max_num:
+        max_num = ch[j]
+        res = j
+print(res, max_num)
